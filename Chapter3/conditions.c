@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <ctype.h>
 #include <time.h>
@@ -6,6 +7,10 @@
 //the ifs, ands and buts about it
 int main()
 {
+    //https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
+    srand(time(NULL));   // Initialization, should only be called once.
+    int r = rand();      // Returns a pseudo-random integer between 0 and RAND_MAX.
+
     void AC(){
         //if statement about ac and temperature
         const int IROOMTEMP = 70;//fahrenheit
@@ -19,19 +24,25 @@ int main()
         scanf("%d", &iCurrentTemperature);
 
         if(isdigit(iCurrentTemperature) == 0){
+
             if (iCurrentTemperature > 80){
                 printf("The AC is on.");
                 bAC = true;
             }
+
             else{
                 printf("The AC is off.");
                 bAC = false;
             }
         }
+
         else{
             printf("That is not a number.");
         }
     }
+
+    AC();
+
     //a nested if statement with about banking
     void banking(){
         int iSelection = 0;
@@ -145,7 +156,6 @@ int main()
         printf("\nNow the hard part, checking for digits that are longer than one byte, like 77 or 49820.\n");
         char sLongNumber[] = "123";
         printf("Our number to test is %s\n", sLongNumber);
-        printf("Multidigit string test: Results: %d\n", isdigit(sLongNumber));
 
         printf("It don't work. Lmao, it can only be a single digit. \nOh well, I'm the programmer, I'll figure it out. Testing over.\n");
 
@@ -238,6 +248,7 @@ int main()
     }
 
     void printManyRndNumbers(int repeatMax){
+
         int iCount = 0;
         int iRepeat = repeatMax;
         while (iCount < iRepeat){
@@ -249,7 +260,6 @@ int main()
     //only changes randomly every second from the time input
     //I can fix this later
     int rollSixSidedDie(){
-        srand();
         int result = 0;
         result = (rand() % 6) + 1;
         return result;
@@ -280,7 +290,6 @@ int main()
         case 6:
             printf("Clouds obscure my judgment.\n");
             break;
-
         }
     }
 
