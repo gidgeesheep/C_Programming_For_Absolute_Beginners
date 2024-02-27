@@ -41,7 +41,6 @@ int main()
         }
     }
 
-    AC();
 
     //a nested if statement with about banking
     void banking(){
@@ -320,6 +319,7 @@ int main()
         }
         printf("Game over");
     }
+
 
 
     return 0;
